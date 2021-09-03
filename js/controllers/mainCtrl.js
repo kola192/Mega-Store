@@ -71,12 +71,10 @@ angular.module('megaStore')
         if($scope.found){
             $rootScope.cartItems[$scope.index].qty+=1
             $rootScope.amount = productToBeAddedToCart.sellPrice * $rootScope.cartItems[$scope.index].qty
-            alert("Your product has been added successfully to the cart")
         }
         else{
             $rootScope.cartProducts.push(productToBeAddedToCart)
             $rootScope.amount = productToBeAddedToCart.sellPrice * productToBeAddedToCart.qty
-            alert("Your product has been added successfully to the cart")
         }
 
     }
