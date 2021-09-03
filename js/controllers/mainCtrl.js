@@ -24,11 +24,10 @@ angular.module('megaStore')
     ]
 
 
-    $rootScope.userLoggedOut =false
+    $rootScope.userLoggedOut =true
 
     $scope.login = function() {
         $scope.userLoggedOut = true
-        $rootScope.isLoggedIn = true
         $state.go('app.store')
     }
     
@@ -45,23 +44,41 @@ angular.module('megaStore')
         {id:3,name:"Electronics"}
         ]
 
-    //Add To Cart 
+    //Handle Add To Cart 
     $rootScope.cartProducts = []
     $rootScope.total = 0
-    $rootScope.isLoggedIn = false;
-    $rootScope.addToCart = function(cartProduct) {
-        if ($rootScope.isLoggedIn) {
-            $rootScope.qty = 1
-            $rootScope.amount = cartProduct.sellPrice * $rootScope.qty
-            $rootScope.total += $rootScope.amount
-            console.log($rootScope.total)
-            $rootScope.cartProducts.push(cartProduct)
-            console.log($scope.cartProducts)
-        } 
-        else {
-            alert("You need to login first!")
-            $state.go('app.login')
+    $rootScope.addToCart = function(productToBeAddedToCart) {
+        //make sure to put a default value for every new item before adding it the cart
+        if(productToBeAddedToCart.qty === undefined) {
+            productToBeAddedToCart.qty = 1
         }
+        $rootScope.amount = productToBeAddedToCart.sellPrice * 1
+        $rootScope.cartItems = $rootScope.cartProducts 
+        $scope.found=false
+    
+        $rootScope.cartItems.forEach(item =>{
+            //Check if cartItem doesn't have qty and providing it with default value
+            if(item.qty === undefined) {
+                item.qty = 1
+            }
+            // check if the product is already in the cartProducts array
+            if(productToBeAddedToCart.id===item.id){
+                $scope.found=true
+                $scope.index=$rootScope.cartItems.indexOf(item)
+            }
+            
+        }) 
+        if($scope.found){
+            $rootScope.cartItems[$scope.index].qty+=1
+            $rootScope.amount = productToBeAddedToCart.sellPrice * $rootScope.cartItems[$scope.index].qty
+            alert("Your product has been added successfully to the cart")
+        }
+        else{
+            $rootScope.cartProducts.push(productToBeAddedToCart)
+            $rootScope.amount = productToBeAddedToCart.sellPrice * productToBeAddedToCart.qty
+            alert("Your product has been added successfully to the cart")
+        }
+
     }
 
     //Handle Deleting From The Cart

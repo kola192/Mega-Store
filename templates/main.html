@@ -142,10 +142,10 @@
                     <td></td>
                     <td>{{cartProduct.sellPrice}}</td>
                     <td>
-                      <input type="number" ng-model="qty"  aria-label="Search" class="form-control" style="width: 100px">
+                      <input type="number" ng-model="cartProduct.qty"  aria-label="Search" class="form-control" style="width: 100px">
                   </td>
                     <td class="font-weight-bold">
-                        <strong>{{cartProduct.sellPrice * qty | currency}}</strong>
+                        <strong>{{cartProduct.sellPrice * cartProduct.qty | currency}}</strong>
                     </td>
                     <td>
                       <button ng-click="deleteCartProduct()" type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top"
