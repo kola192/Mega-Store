@@ -1,0 +1,196 @@
+    <!-- Navigation -->
+    <header>
+    
+        <!-- Navbar -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar ">
+          <div class="container">
+    
+            <!-- Brand -->
+            <a class="navbar-brand waves-effect fw-bold" ui-sref="store.home">
+              Mega Store
+            </a>
+    
+            <!-- Collapse -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+              <!-- Left -->
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item" ng-repeat="link in links" ng-class="{'active':isCurrentLink(link)}">
+                  <a class="nav-link waves-effect" ui-sref="{{link.url}}" ng-click="setCurrentLink(link)">{{link.name}}</a>
+                </li>
+                
+              </ul>
+              
+              <!-- Right logged out -->
+              <ul ng-show="!userLoggedOut" class="navbar-nav ml-auto nav-flex-icons align-items-center">
+
+                <li class="nav-item">
+                    <a ui-sref="store.register" class="btn btn-floating blue-gradient btn-sm my-0">Register</a>
+                </li> 
+                <li class="nav-item">
+                    <a ui-sref="store.login" class="btn btn-floating btn-outline-primary btn-sm my-0">Login</a>
+                </li>
+    
+              </ul>
+     
+              <!-- Right logged in -->
+              <ul ng-show="userLoggedout" class="navbar-nav ml-auto nav-flex-icons align-items-center">
+
+                <li class="nav-item mx-lg-3">
+                    <a ui-sref="store.cart">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                </li>
+        
+                <li class="nav-item avatar dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <!-- <img src="img/kola.jpg" width="30" class="rounded-circle z-depth-0"
+                      alt="avatar image"> -->
+                      Mutwakil
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+                    aria-labelledby="navbarDropdownMenuLink-55">
+                    <a class="dropdown-item" ui-sref="store.profile">Profile</a>
+                    <a class="dropdown-item" ng-click="logout()">Logout</a>
+                  </div>
+                  </div>
+                </li>
+              </ul>
+    
+            </div>
+    
+          </div>
+        </nav>
+        <!-- Navbar -->
+    
+      </header>
+      <!-- Navigation -->
+
+
+<!-- injected views -->
+<div class="wrapper" ui-view="sub"></div>
+
+
+
+<!-- Footer -->
+<footer class="page-footer font-small morpheus-den-gradient indigo">
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold h5 text-capitalize mt-3 mb-4" ui-sref="store.home">Mega Store</h5>
+
+        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt dolorum nulla magnam veniam sapiente!</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-capitalize mt-3 mb-4">pages</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a ui-sref="store.home">Home</a>
+          </li>
+          <li>
+            <a ui-sref="">About</a>
+          </li>
+          <li>
+            <a ui-sref="">All Products</a>
+          </li>
+          <li>
+            <a ui-sref="">Contact Us</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-capitalize mt-3 mb-4">categories</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Electronics</a>
+          </li>
+          <li>
+            <a href="#!">Clothes</a>
+          </li>
+          <li>
+            <a href="#!">Perfumes</a>
+          </li>
+          <li>
+            <a href="#!">Shoes</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-capitalize mt-3 mb-4">social media</h5>
+
+        <ul class="list-unstyled navbar-nav d-flex flex-row nav-flex-icons">
+          <li class="nav-item mr-2">
+            <a href="https://www.facebook.com" class="nav-link waves-effect p-2" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        </li> 
+        <li class="nav-item mx-2">
+            <a href="https://twitter.com" class="nav-link waves-effect p-2" target="_blank">
+            <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        <li class="nav-item mx-2">
+            <a href="https://instagram.com" class="nav-link waves-effect p-2"
+            target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        </li> 
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2021 Copyright:
+    <a ui-serf="store.home"> Mega Store</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
