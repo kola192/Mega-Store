@@ -114,27 +114,7 @@ header,
 @media (min-width: 768px) {
   .home-view {
     min-height: 100vh;
-    /* padding-top: 45rem; */
   }
-}
-
-/* 
-.btn .fa {
-  margin-left: 3px;
-}
-
-.navbar:not(.top-nav-collapse) { */
-/* background: transparent !important;
-}
-
-.navbar:not(.top-nav-collapse) a {
-  /* color: transparent !important; */
-/* } */
-
-@media (max-width: 991px) {
-  /* .navbar:not(.top-nav-collapse) { */
-  /* background: #424f95 !important; */
-  /* } */
 }
 
 .btn-white {
