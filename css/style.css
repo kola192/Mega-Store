@@ -12,6 +12,10 @@
   margin-top: 100px !important;
 }
 
+.margin-top-0 {
+  margin-top: 0;
+}
+
 section.login {
   max-width: 600px;
 }
@@ -89,6 +93,12 @@ section.login {
 }
 
 /*Main Navigation End*/
+
+/* Side menu start  */
+.side-nav.wide.slim {
+  width: 3.75rem !important;
+}
+/* Side menu end */
 
 /*Home Full Page Intro Start*/
 html,

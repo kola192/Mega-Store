@@ -1,10 +1,6 @@
+// Initializing wow library
 new WOW().init();
 
-
-$(document).ready(function(){
-
-  
-});
 
 
     

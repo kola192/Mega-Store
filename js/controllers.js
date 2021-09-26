@@ -23,7 +23,7 @@ angular.module('megaStore')
         {name:"ali", email:"ali123@gmai.com", password:"ali123"}
     ]
 
-    $scope.logggedOut =true
+    $scope.logggedOut =false
 
     $scope.login = function() {
 
