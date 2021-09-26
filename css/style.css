@@ -104,7 +104,7 @@ header,
 
 .home-view {
   background: rgba(29, 210, 177, 0.7);
-  min-height: 140vh;
+  min-height: 150vh;
   background-image: url("../img/cover.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -113,7 +113,7 @@ header,
 
 @media (min-width: 768px) {
   .home-view {
-    min-height: 90vh;
+    min-height: 100vh;
     /* padding-top: 45rem; */
   }
 }
