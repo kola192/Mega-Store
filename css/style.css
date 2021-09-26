@@ -94,12 +94,6 @@ section.login {
 
 /*Main Navigation End*/
 
-/* Side menu start  */
-.side-nav.wide.slim {
-  width: 3.75rem !important;
-}
-/* Side menu end */
-
 /*Home Full Page Intro Start*/
 html,
 body,
@@ -110,7 +104,7 @@ header,
 
 .home-view {
   background: rgba(29, 210, 177, 0.7);
-  min-height: 125vh;
+  min-height: 140vh;
   background-image: url("../img/cover.jpg");
   background-repeat: no-repeat;
   background-size: cover;
