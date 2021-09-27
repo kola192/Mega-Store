@@ -6,7 +6,7 @@
           <div class="container">
     
             <!-- Brand -->
-            <a class="navbar-brand waves-effect fw-bold" ui-sref="store.home">
+            <a class="navbar-brand waves-effect fw-bold" ui-sref="app.home">
               Mega Store
             </a>
     
@@ -28,22 +28,22 @@
               </ul>
               
               <!-- Right logged out -->
-              <ul ng-show="!userLoggedOut" class="navbar-nav ml-auto nav-flex-icons align-items-center">
+              <ul ng-if="!userLoggedOut" class="navbar-nav ml-auto nav-flex-icons align-items-center">
 
                 <li class="nav-item">
-                    <a ui-sref="store.register" class="btn btn-floating blue-gradient btn-sm my-0">Register</a>
+                    <a ui-sref="app.register" class="btn btn-floating blue-gradient btn-sm my-0">Register</a>
                 </li> 
                 <li class="nav-item">
-                    <a ui-sref="store.login" class="btn btn-floating btn-outline-primary btn-sm my-0">Login</a>
+                    <a ui-sref="app.login" class="btn btn-floating btn-outline-primary btn-sm my-0">Login</a>
                 </li>
     
               </ul>
      
               <!-- Right logged in -->
-              <ul ng-show="userLoggedout" class="navbar-nav ml-auto nav-flex-icons align-items-center">
+              <ul ng-if="userLoggedOut" class="navbar-nav ml-auto nav-flex-icons align-items-center">
 
                 <li class="nav-item mx-lg-3">
-                    <a ui-sref="store.cart">
+                    <a ui-sref="app.cart">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
                 </li>
@@ -53,11 +53,11 @@
                     aria-haspopup="true" aria-expanded="false">
                     <!-- <img src="img/kola.jpg" width="30" class="rounded-circle z-depth-0"
                       alt="avatar image"> -->
-                      Mutwakil
+                    Mutwakil
                   </a>
                   <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
                     aria-labelledby="navbarDropdownMenuLink-55">
-                    <a class="dropdown-item" ui-sref="store.profile">Profile</a>
+                    <a class="dropdown-item" ui-sref="app.profile">Profile</a>
                     <a class="dropdown-item" ng-click="logout()">Logout</a>
                   </div>
                   </div>
@@ -92,7 +92,7 @@
       <div class="col-md-3 mx-auto">
 
         <!-- Links -->
-        <h5 class="font-weight-bold h5 text-capitalize mt-3 mb-4 wow fadeIn" ui-sref="store.home" data-wow-delay=".2s">Mega Store</h5>
+        <h5 class="font-weight-bold h5 text-capitalize mt-3 mb-4 wow fadeIn" ui-sref="app.home" data-wow-delay=".2s">Mega Store</h5>
 
         <p class="wow fadeIn" data-wow-delay=".4s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt dolorum nulla magnam veniam sapiente!</p>
 
@@ -109,16 +109,16 @@
 
         <ul class="list-unstyled">
           <li>
-            <a ui-sref="store.home" class="wow fadeInUp" data-wow-delay=".2s">Home</a>
+            <a ui-sref="app.home" class="wow fadeInUp" data-wow-delay=".2s">Home</a>
           </li>
           <li>
-            <a ui-sref="" class="wow fadeInUp" data-wow-delay=".4s">About</a>
+            <a ui-sref="app.about" class="wow fadeInUp" data-wow-delay=".4s">About</a>
           </li>
           <li>
-            <a ui-sref="" class="wow fadeInUp" data-wow-delay=".6s">All Products</a>
+            <a ui-sref="app.store" class="wow fadeInUp" data-wow-delay=".6s">All Products</a>
           </li>
           <li>
-            <a ui-sref="" class="wow fadeInUp" data-wow-delay=".8s">Contact Us</a>
+            <a ui-sref="app.contact" class="wow fadeInUp" data-wow-delay=".8s">Contact Us</a>
           </li>
         </ul>
 
@@ -159,9 +159,9 @@
         <!-- Links -->
         <h5 class="font-weight-bold text-capitalize mt-3 mb-4 wow fadeIn" data-wow-delay=".8s">social media</h5>
 
-        <ul class="list-unstyled navbar-nav d-flex flex-row nav-flex-icons">
+        <ul class="list-unstyled navbar-nav d-flex flex-row nav-flex-icons justify-content-center justify-content-md-start">
           <li class="nav-item mr-2">
-            <a href="https://www.facebook.com" class="nav-link waves-effect p-2 wow fadeInUp" target="_blank" data-wow-delay=".2s">
+            <a href="https://www.facebook.com" class="nav-link waves-effect py-2 pl-0 pr-2 wow fadeInUp" target="_blank" data-wow-delay=".2s">
             <i class="fab fa-facebook-f"></i>
           </a>
           </li> 
@@ -176,6 +176,18 @@
               <i class="fab fa-instagram"></i>
           </a>
           </li> 
+          <li class="nav-item mx-2">
+              <a href="https://instagram.com" class="nav-link waves-effect p-2 wow fadeInUp"
+              target="_blank" data-wow-delay=".6s">
+              <i class="fab fa-linkedin-in"></i>
+          </a>
+          </li> 
+          <li class="nav-item mx-2">
+              <a href="https://instagram.com" class="nav-link waves-effect p-2 wow fadeInUp"
+              target="_blank" data-wow-delay=".6s">
+              <i class="fab fa-pinterest"></i>
+          </a>
+          </li> 
         </ul>
       </div>
       <!-- Grid column -->
@@ -188,9 +200,15 @@
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2021 Copyright:
-    <a ui-serf="store.home" class="wow fadeIn" data-wow-delay=".2s"> Mega Store</a>
+    <a ui-serf="app.home" class="wow fadeIn" data-wow-delay=".2s"> Mega Store</a>
   </div>
   <!-- Copyright -->
 
 </footer>
 <!-- Footer -->
+
+        <a href="#" class="mx-1" ></a>
+        <a href="#" class="mx-1" role="button"></a>
+        <a href="#" class="mx-1" role="button"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="mx-1" role="button"><i class="fab fa-github"></i></a>
+        <a href="#" class="mx-1" role="button"><i class="fab fa-stack-overflow"></i></a>

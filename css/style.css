@@ -36,6 +36,16 @@ section.login {
   padding-top: 80px;
 }
 
+.card.testi .view {
+  overflow: visible !important;
+  height: 120px;
+}
+
+.card-testi img {
+  position: absolute;
+  top: 60px;
+}
+
 @media (max-width: 768px) {
   .max-80 {
     max-width: 80%;
@@ -191,3 +201,32 @@ h6 {
   border-top-right-radius: 0.25rem !important;
 }
 /* Contact Page Style End */
+
+/* Testimonials Start */
+.myTestimonialCard {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.myTestimonialCard .view {
+  height: 120px;
+  overflow: visible;
+  position: relative;
+}
+
+.myTestimonialImageContainer {
+  margin-bottom: 2.5em;
+}
+
+.myTestimonialImage {
+  border: 5px solid #fff;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  position: absolute !important;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+/* Testimonials End */

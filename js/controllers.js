@@ -2,10 +2,10 @@ angular.module('megaStore')
 .controller('MainCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
     // Handle Links
     $scope.links = [
-        {name:"Home", url:"store.home"},
-        {name:"About", url:"store.about"},
-        {name:"Products", url:"store.allProducts"}, 
-        {name:"Contact Us", url:"store.contact"}
+        {name:"Home", url:"app.home"},
+        {name:"About", url:"app.about"},
+        {name:"Products", url:"app.store"}, 
+        {name:"Contact Us", url:"app.contact"}
     ]
     $scope.currentLink = $scope.links[0]
     $scope.setCurrentLink = function(link) {
@@ -23,16 +23,27 @@ angular.module('megaStore')
         {name:"ali", email:"ali123@gmai.com", password:"ali123"}
     ]
 
-    $scope.logggedOut =false
+    $scope.newUser = {}
+
+    $scope.userLoggedOut =false
 
     $scope.login = function() {
+        $scope.userLoggedOut =true
 
+    }
+
+    $scope.register = function() {
+        
+    }
+
+    $scope.logout = function() {
+        $scope.userLoggedOut =false
     }
 }])
 .controller('HomeCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
 
 }])
-.controller('AllProductsCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+.controller('storeCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
 
 }])
 .controller('LoginCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {

@@ -11,19 +11,19 @@
         <!--Grid column-->
         <div class="col-md-6">
 
-          <!-- Default form login -->
-          <form class="text-center" ng-submit="login()">
+          <!-- Default form register -->
+          <form class="text-center" ng-submit="register()">
 
             <p class="h4 mb-4">Register</p>
 
             <!-- Name -->
-            <input type="email" class="form-control mb-4" placeholder="Name" ng-model="name">
+            <input type="text" class="form-control mb-4" placeholder="Name" ng-model="newUser.name">
 
             <!-- Email -->
-            <input type="email" class="form-control mb-4" placeholder="E-mail" ng-model="email">
+            <input type="email" class="form-control mb-4" placeholder="E-mail" ng-model="newUser.email">
  
             <!-- Password -->
-            <input type="password" class="form-control mb-4" placeholder="Password" ng-model="password">
+            <input type="password" class="form-control mb-4" placeholder="Password" ng-model="newUser.password">
 
             
 
@@ -32,11 +32,11 @@
 
             <!-- Register -->
             <p>Already have an account?
-              <a ui-sref="store.login">Login</a>
+              <a ui-sref="app.login">Login</a>
             </p>
 
           </form>
-          <!-- Default form login -->
+          <!-- Default form register -->
 
         </div>
         <!--Grid column-->

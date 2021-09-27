@@ -1,8 +1,8 @@
 angular.module("megaStore", ["ui.router"])
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
-            .state("store", {
-                url: "/store",
+            .state("app", {
+                url: "/app",
                 views: {
                     main: {
                         templateUrl: "templates/main.html",
@@ -10,7 +10,7 @@ angular.module("megaStore", ["ui.router"])
                     }
                 }
             })
-            .state("store.home", {
+            .state("app.home", {
                 url: "/home",
                 views: {
                     sub: {
@@ -19,7 +19,7 @@ angular.module("megaStore", ["ui.router"])
                     }
                 }
             })
-            .state("store.login", {
+            .state("app.login", {
                 url: "/login",
                 views: {
                     sub: {
@@ -28,7 +28,7 @@ angular.module("megaStore", ["ui.router"])
                     }
                 }
             })
-            .state("store.register", {
+            .state("app.register", {
                 url: "/register",
                 views: {
                     sub: {
@@ -37,16 +37,16 @@ angular.module("megaStore", ["ui.router"])
                     }
                 }
             })
-            .state("store.allProducts", {
-                url: "/all-products",
+            .state("app.store", {
+                url: "/store",
                 views: {
                     sub: {
-                        templateUrl: "templates/allProducts.html",
-                        controller: "AllProductsCtrl"
+                        templateUrl: "templates/store.html",
+                        controller: "storeCtrl"
                     }
                 }
             })
-            .state("store.contact", {
+            .state("app.contact", {
                 url: "/contact",
                 views: {
                     sub: {
@@ -55,7 +55,7 @@ angular.module("megaStore", ["ui.router"])
                     }
                 }
             })
-            .state("store.about", {
+            .state("app.about", {
                 url: "/about",
                 views: {
                     sub: {
@@ -64,7 +64,7 @@ angular.module("megaStore", ["ui.router"])
                     }
                 }
             })
-            .state("store.profile", {
+            .state("app.profile", {
                 url: "/profile",
                 views: {
                     sub: {
@@ -75,5 +75,5 @@ angular.module("megaStore", ["ui.router"])
             })
 
             
-        $urlRouterProvider.otherwise("/store/home")
+        $urlRouterProvider.otherwise("/app/home")
     })
