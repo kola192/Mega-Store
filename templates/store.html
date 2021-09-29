@@ -1,13 +1,13 @@
 <div class="container margin-top">
     <div class="row">
-        <div class="col-md-3 mb-4">
+        <div class="col-md-3 mb-4 wow fadeInLeft" data-wow-delay=".3s">
             <div class="list-group">
                 <button ng-repeat="category in categories" ng-class="{'active':isActiveCategory(category)}" ng-click="setCurrentCategory(category);setActiveCategory(category)" type="button" class="list-group-item list-group-item-action">
                   {{category.name}}
                 </button>
               </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 wow fadeInUp" data-wow-delay=".5s">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
                 <div class="col" ng-repeat="product in products  | filter:{category:currentCategory.name}">
                     <!-- Card -->
@@ -15,9 +15,11 @@
             
                         <!-- Card image -->
                         <div class="view overlay">
-                        <img class="card-img-top myProductImage" src="{{product.image}}"
+                        <a ng-click="showProductDetails(product)">
+                            <img class="card-img-top myProductImage" src="{{product.image}}"
                             alt="Card image cap">
-                        <a href="#!">
+                        </a>
+                        <a ng-click="showProductDetails(product)">
                             <div class="mask rgba-white-slight"></div>
                         </a>
                         </div>
@@ -26,7 +28,10 @@
                         <div class="card-body">
                     
                         <!-- Title -->
-                        <h4 class="card-title">{{product.name}}</h4>
+                        <a ng-click="showProductDetails(product)">
+                            <h4 class="card-title">{{product.name}}</h4>
+                        </a>
+                        
             
                         <div class="clearfix">
                             <div class="float-right">
@@ -35,9 +40,8 @@
                             </div>
             
                             <div class="float-left text-muted">
-                                <a href=""><span class="fa fa-shopping-cart pr-2"></span></a>
-                                <a href=""><span class="fa fa-heart gray-color px-2"></span></a>
-                                <a href=""><span class="fa fa-eye pl-2"></span></a>
+                                <a ng-click="addToCart(product)"><span class="fa fa-shopping-cart pr-2"></span></a>
+                                <a ng-click="showProductDetails(product)"><span class="fa fa-eye pl-2"></span></a>
                             </div>
                         </div>
                     
@@ -49,15 +53,18 @@
             </div> <!-- row end -->
         </div>
     </div>
+
+    <!-- Breadcrumb -->
     <div class="row d-md-none">
         <div class="col-md-3 mb-4 mt-2">
             <div class="list-group">
                 <button ng-repeat="category in categories" ng-class="{'active':isActiveCategory(category)}" ng-click="setCurrentCategory(category);setActiveCategory(category)" type="button" class="list-group-item list-group-item-action">
-                  {{category.name}}
+                    {{category.name}}
                 </button>
-              </div>
+            </div>
         </div>
     </div>
+    <!-- Breadcrumb -->
 </div> <!-- container end -->
 
 

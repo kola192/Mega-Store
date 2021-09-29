@@ -73,6 +73,33 @@ angular.module("megaStore", ["ui.router"])
                     }
                 }
             })
+            .state("app.cart", {
+                url: "/cart",
+                views: {
+                    sub: {
+                        templateUrl: "templates/cart.html",
+                        controller: "CartCtrl"
+                    }
+                }
+            })
+            .state("app.details", {
+                url: "/details",
+                views: {
+                    sub: {
+                        templateUrl: "templates/details.html",
+                        controller: "DetailsCtrl"
+                    }
+                }
+            })
+            .state("app.checkout", {
+                url: "/checkout",
+                views: {
+                    sub: {
+                        templateUrl: "templates/checkout.html",
+                        controller: "CheckoutCtrl"
+                    }
+                }
+            })
 
             
         $urlRouterProvider.otherwise("/app/home")

@@ -43,6 +43,28 @@ section.login {
   height: 250px;
 }
 
+.myCartImage {
+  width: 50px;
+  max-height: 80px;
+}
+
+.myCartTitle {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  border-radius: 4px;
+}
+
+.rounded {
+  border-radius: 5px !important;
+}
+
+.myProductDetailsCard {
+  margin-top: 8em !important;
+  margin-bottom: 4em !important;
+}
+
 @media (max-width: 768px) {
   .max-80 {
     max-width: 80%;

@@ -1,5 +1,5 @@
 angular.module('megaStore')
-.controller('MainCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+.controller('MainCtrl', ['$scope', '$rootScope', '$state', function($scope, $rootScope, $state) {
     // Handle Links
     $scope.links = [
         {name:"Home", url:"app.home"},
@@ -27,7 +27,9 @@ angular.module('megaStore')
     $rootScope.userLoggedOut =false
 
     $scope.login = function() {
-        $scope.userLoggedOut =true
+        $scope.userLoggedOut = true
+        $rootScope.isLoggedIn = true
+        $state.go('app.store')
     }
     
 
@@ -43,6 +45,29 @@ angular.module('megaStore')
         {id:3,name:"Electronics"}
         ]
 
+    //Add To Cart 
+    $rootScope.cartProducts = []
+    $rootScope.setTotal = function(a, b) {
+        a = a + b
+        return a
+    }
+    $rootScope.isLoggedIn = false;
+    $rootScope.addToCart = function(cartProduct) {
+        if ($rootScope.isLoggedIn) {
+            $rootScope.qty = 1
+            $rootScope.total = 0
+            $rootScope.amount = cartProduct.sellPrice * $rootScope.qty
+            $rootScope.setTotal($rootScope.total, $rootScope.amount)
+            console.log($rootScope.total)
+            $rootScope.cartProducts.push(cartProduct)
+            console.log($scope.cartProducts)
+        } 
+        else {
+            alert("You need to login first!")
+            $state.go('app.login')
+        }
+    }
+
 }])
 .controller('HomeCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
     $rootScope.featuredProducts = [
@@ -52,7 +77,7 @@ angular.module('megaStore')
         {name:"Mac 5",mainPrice:1500,sellPrice:1299,category:"elects",image:"img/products/lap4.jpg"}
     ]
 }])
-.controller('storeCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+.controller('storeCtrl', ['$scope', '$rootScope', '$state', function($scope, $rootScope, $state) {
     $rootScope.products = [
         {id:0,name:"Chambary T-shirt",mainPrice:72,sellPrice:68,category:"clothes",image:"img/products/cloth2.jpg"},
         {id:1,name:"Stratus Backpack",mainPrice:96,sellPrice:79,category:"clothes",image:"img/products/cloth5.png"},
@@ -93,6 +118,19 @@ angular.module('megaStore')
         return $rootScope.activeCategory !== null && category === $rootScope.activeCategory
     }
 
+    //Handle Details Page
+    $rootScope.showProductDetails = function(productDetails) {
+        $rootScope.productDetails = productDetails
+        $state.go('app.details')
+        console.log(productDetails)
+
+    }
+
+    //Handle Cart
+    $rootScope.showCart = function() {
+        $state.go('app.cart')
+    }
+
 }])
 .controller('LoginCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
 
@@ -125,4 +163,13 @@ angular.module('megaStore')
 }])
 .controller('ProfileCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
 
+}])
+.controller('CartCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+    
+}])
+.controller('DetailsCtrl', ['$scope', '$rootScope', function($scope, $rootScope,$state) {
+    
+}])
+.controller('CheckoutCtrl', ['$scope', '$rootScope', function($scope, $rootScope,$state) {
+    
 }])

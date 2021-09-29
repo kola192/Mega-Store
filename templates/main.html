@@ -1,77 +1,108 @@
-    <!-- Navigation -->
-    <header>
-    
-        <!-- Navbar -->
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar ">
-          <div class="container">
-    
-            <!-- Brand -->
-            <a class="navbar-brand waves-effect fw-bold" ui-sref="app.home">
-              Mega Store
+<!-- Navigation -->
+  <header>
+
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar ">
+      <div class="container">
+
+        <!-- Brand -->
+        <a class="navbar-brand waves-effect fw-bold" ui-sref="app.home">
+          Mega Store
+        </a>
+
+        <!-- Collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <!-- Left -->
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item" ng-repeat="link in links" ng-class="{'active':isCurrentLink(link)}">
+              <a class="nav-link waves-effect" ui-sref="{{link.url}}" ng-click="setCurrentLink(link)">{{link.name}}</a>
+            </li>
+            
+          </ul>
+          
+          <!-- Right logged out -->
+          <ul ng-if="!userLoggedOut" class="navbar-nav ml-auto nav-flex-icons align-items-center">
+
+            <li class="nav-item">
+                <a ui-sref="app.register" class="btn btn-floating blue-gradient btn-sm my-0">Register</a>
+            </li> 
+            <li class="nav-item">
+                <a ui-sref="app.login" class="btn btn-floating btn-outline-primary btn-sm my-0">Login</a>
+            </li>
+
+          </ul>
+
+          <!-- Right logged in -->
+          <ul ng-if="userLoggedOut" class="navbar-nav ml-auto nav-flex-icons align-items-center">
+
+            <li class="nav-item mx-lg-3">
+                <a data-toggle="modal" data-target="#centralModalSm">
+                <i class="fas fa-shopping-cart"></i>
             </a>
+            </li>
     
-            <!-- Collapse -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-    
-            <!-- Links -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    
-              <!-- Left -->
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item" ng-repeat="link in links" ng-class="{'active':isCurrentLink(link)}">
-                  <a class="nav-link waves-effect" ui-sref="{{link.url}}" ng-click="setCurrentLink(link)">{{link.name}}</a>
-                </li>
-                
-              </ul>
-              
-              <!-- Right logged out -->
-              <ul ng-if="!userLoggedOut" class="navbar-nav ml-auto nav-flex-icons align-items-center">
+            <li class="nav-item avatar dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <!-- <img src="img/kola.jpg" width="30" class="rounded-circle z-depth-0"
+                  alt="avatar image"> -->
+                Username
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+                aria-labelledby="navbarDropdownMenuLink-55">
+                <a class="dropdown-item" ui-sref="app.profile">Profile</a>
+                <a class="dropdown-item" ng-click="logout()">Logout</a>
+              </div>
+              </div>
+            </li>
+          </ul>
 
-                <li class="nav-item">
-                    <a ui-sref="app.register" class="btn btn-floating blue-gradient btn-sm my-0">Register</a>
-                </li> 
-                <li class="nav-item">
-                    <a ui-sref="app.login" class="btn btn-floating btn-outline-primary btn-sm my-0">Login</a>
-                </li>
-    
-              </ul>
-     
-              <!-- Right logged in -->
-              <ul ng-if="userLoggedOut" class="navbar-nav ml-auto nav-flex-icons align-items-center">
+        </div>
 
-                <li class="nav-item mx-lg-3">
-                    <a ui-sref="app.cart">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-                </li>
-        
-                <li class="nav-item avatar dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <!-- <img src="img/kola.jpg" width="30" class="rounded-circle z-depth-0"
-                      alt="avatar image"> -->
-                    Username
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
-                    aria-labelledby="navbarDropdownMenuLink-55">
-                    <a class="dropdown-item" ui-sref="app.profile">Profile</a>
-                    <a class="dropdown-item" ng-click="logout()">Logout</a>
-                  </div>
-                  </div>
-                </li>
-              </ul>
-    
-            </div>
-    
-          </div>
-        </nav>
-        <!-- Navbar -->
-    
-      </header>
-      <!-- Navigation -->
+      </div>
+    </nav>
+    <!-- Navbar -->
+
+  </header>
+<!-- Navigation -->
+
+<!-- Cart Modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="centralModalSm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+
+  <!-- Change class .modal-sm to change the size of the modal -->
+  <div class="modal-dialog modal-lg" role="document">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Cart</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <a ui-sref="app.store" class="btn btn-outline-primary btn-sm" data-dismiss="modal">Back To Shop</a>
+        <a ui-sref="app.cart" class="btn purple-gradient btn-sm" data-dismiss="modal">View Cart</a>
+        <a ui-sref= "app.checkout" class="btn blue-gradient btn-sm" data-dismiss="modal">purchase</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<!-- Cart Modal -->
 
 
 <!-- injected views -->
