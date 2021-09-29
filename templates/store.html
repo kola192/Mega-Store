@@ -1,6 +1,6 @@
 <div class="container margin-top">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 mb-4">
             <div class="list-group">
                 <button ng-repeat="category in categories" ng-class="{'active':isActiveCategory(category)}" ng-click="setCurrentCategory(category);setActiveCategory(category)" type="button" class="list-group-item list-group-item-action">
                   {{category.name}}
@@ -8,7 +8,7 @@
               </div>
         </div>
         <div class="col-md-9">
-            <div class="row row-cols-1 row-cols-md-3">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
                 <div class="col" ng-repeat="product in products  | filter:{category:currentCategory.name}">
                     <!-- Card -->
                     <div class="card myProductCard mb-4 wow fadeIn" data-wow-delay=".4s">
@@ -47,6 +47,15 @@
                     <!-- Card -->
                 </div> <!-- col end -->
             </div> <!-- row end -->
+        </div>
+    </div>
+    <div class="row d-md-none">
+        <div class="col-md-3 mb-4 mt-2">
+            <div class="list-group">
+                <button ng-repeat="category in categories" ng-class="{'active':isActiveCategory(category)}" ng-click="setCurrentCategory(category);setActiveCategory(category)" type="button" class="list-group-item list-group-item-action">
+                  {{category.name}}
+                </button>
+              </div>
         </div>
     </div>
 </div> <!-- container end -->
