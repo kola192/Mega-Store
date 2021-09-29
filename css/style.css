@@ -36,14 +36,11 @@ section.login {
   padding-top: 80px;
 }
 
-.card.testi .view {
-  overflow: visible !important;
-  height: 120px;
+.myProductCard {
 }
 
-.card-testi img {
-  position: absolute;
-  top: 60px;
+.myProductImage {
+  height: 250px;
 }
 
 @media (max-width: 768px) {
