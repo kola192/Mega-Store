@@ -39,7 +39,9 @@
                     <!-- Single row -->
                     <tr ng-repeat="cartProduct in cartProducts">
                       <th scope="row">
-                          <img src="{{cartProduct.image}}" alt="" class="myCartImage img-fluid z-depth-0">
+                          <div class="myCartImageContainer">
+                            <img src="{{cartProduct.image}}" alt="" class="myCartImage img-fluid z-depth-0">
+                          </div>
                         </th>
                         <td>
                             <h5 class="mt-3">
@@ -77,7 +79,7 @@
                     </td>
                     <td class="text-right">
                         <h4 class="mt-2">
-                          <strong>{{total}}</strong>
+                          <strong>{{total | currency}}</strong>
                         </h4>
                       </td>
                       <td colspan="3" class="text-right">
