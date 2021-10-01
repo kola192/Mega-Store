@@ -43,9 +43,11 @@ section.login {
   height: 250px;
 }
 
+.myCartImageContainer {
+  width: 60px;
+}
+
 .myCartImage {
-  width: 50px;
-  max-height: 80px;
 }
 
 .myCartTitle {
