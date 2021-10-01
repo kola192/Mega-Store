@@ -57,7 +57,7 @@
                           <strong>{{cartProduct.sellPrice * qty | currency}}</strong>
                       </td>
                       <td>
-                        <button type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top"
+                        <button ng-click="deleteCartProduct(cartProduct)" type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top"
                         title="Remove item">X
                         </button>
                     </td>
@@ -83,9 +83,9 @@
                         </h4>
                       </td>
                       <td colspan="3" class="text-right">
-                          <button type="button" class="btn btn-primary btn-rounded">Complete purchase
+                          <a ui-sref="app.checkout" class="btn btn-primary btn-rounded">Complete purchase
                               <i class="fas fa-angle-right right"></i>
-                        </button>
+                        </a>
                     </td>
                 </tr>
                 <!-- Fourth row -->

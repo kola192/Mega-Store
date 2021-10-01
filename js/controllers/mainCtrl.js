@@ -64,4 +64,10 @@ angular.module('megaStore')
         }
     }
 
+    //Handle Deleting From The Cart
+    $rootScope.deleteCartProduct = function(cartProduct) {
+        var index = $rootScope.cartProducts.indexOf(cartProduct);
+        $rootScope.cartProducts.splice(index, 1); 
+    }
+
 }])
